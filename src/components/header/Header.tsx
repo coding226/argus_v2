@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.css';
 import { withStyles } from '@mui/styles';
+import { useHistory } from "react-router-dom";
 
 import { Button, TextField } from '@mui/material';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -8,18 +9,19 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 const styles = {
   root: {
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // alignItems: 'center',
+    // justifyContent: 'center',
     color: 'white',
-    height: '60px',
+    height: 'auto',
     padding: '1rem',
-    fontSize: '16px'
+    fontSize: '16px',
+    'flex-wrap': 'wrap'
   },
   logo: {
     flexGrow: 1
   },
   dateWraper: {
-    display: 'flex',    
+    display: 'flex',
     justifyContent: 'space-between',
     width: '360px'
   },
@@ -27,25 +29,35 @@ const styles = {
   logoutWraper: {},
   profileDropdown: {
     backgroundColor: 'transparent !important',
-    border: 'none'
+    border: 'none',
+    'text-transform': 'none !important'
   },
   logout: {
     backgroundColor: 'transparent !important',
-    border: 'none'
+    border: 'none',
+    'text-transform': 'none !important'
   },
   datefield: {
     background: 'white !important',
     width: 170,
-    borderRadius: '3px' 
-
+    maxWidth: '49%',
+    borderRadius: '3px',
+  },
+  inputStyle: {
+    fontSize: '14px !important',
+    lineHeight: '16px !important'
   }
 }
 function Header(props: any) {
   const { classes } = props;
+  const history = useHistory();
+  const retunHeaderPage = () => {
+    return history.location.pathname === "/sustainment" ? 'Sustainment Twin' : 'Simulation Twin';
+  }
   return (
     <header className={classes.root + " header gradient-background"}>
       <div className={classes.logo} >
-        <strong>ARGUS</strong><span> - Simulation Twin</span>
+        <strong>ARGUS</strong><span> - {retunHeaderPage()}</span>
       </div>
       <div className={classes.dateWraper} >
         <TextField
@@ -54,6 +66,9 @@ function Header(props: any) {
           defaultValue="Date Start"
           placeholder="Date Start"
           className={classes.datefield}
+          InputProps={{
+            className: classes.inputStyle
+          }}
           InputLabelProps={{
             shrink: true,
           }}
@@ -64,6 +79,9 @@ function Header(props: any) {
           defaultValue="Date Start"
           placeholder="Date End"
           className={classes.datefield}
+          InputProps={{
+            className: classes.inputStyle
+          }}
           InputLabelProps={{
             shrink: true,
           }}
@@ -78,7 +96,6 @@ function Header(props: any) {
           disableElevation
           endIcon={<KeyboardArrowDownIcon />}
           className={classes.profileDropdown}
-          sx={{ textTransform: 'none' }}
         >
           Profile
         </Button>
@@ -88,7 +105,6 @@ function Header(props: any) {
           variant="contained"
           disableElevation
           className={classes.logout}
-          sx={{ textTransform: 'none' }}
         >
           Logout
         </Button>

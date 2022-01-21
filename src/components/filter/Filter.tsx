@@ -33,6 +33,11 @@ const styles: any = {
     },
     inputText: {
         fontSize: '12px !important',
+        lineHeight: '16px !important'
+    },
+    inputStyle: {
+      fontSize: '14px !important',
+      lineHeight: '16px !important'
     }
 };
 
@@ -68,10 +73,10 @@ function Filter(props: any) {
     }
 
     function getSerialNoItem(selectedPart: PartDetails) {
-        return selectedPart.serial_numbers ? selectedPart.serial_numbers.map((item: number) => (<MenuItem value={item}>{item}</MenuItem>)) : null;
+        return selectedPart.serial_numbers ? selectedPart.serial_numbers.map((item: number, index) => (<MenuItem value={item} key={index}>{item}</MenuItem>)) : null;
     }
     function getLotNoItem(selectedPart: PartDetails) {
-        return selectedPart.lot_number_id ? selectedPart.lot_number_id.map((item: number) => (<MenuItem value={item}>{item}</MenuItem>)) : null;
+        return selectedPart.lot_number_id ? selectedPart.lot_number_id.map((item: number, index) => (<MenuItem value={item} key={index}>{item}</MenuItem>)) : null;
     }
     function onchangeInput(e:any){
         let {value, name} = e.target;
@@ -81,7 +86,7 @@ function Filter(props: any) {
     return (
         <div className={classes.root}>
             <Grid container spacing={2}>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <Paper
                         component="div"
                         className={classes.searchWraper}
@@ -92,7 +97,10 @@ function Filter(props: any) {
                             inputProps={{ 'aria-label': 'search google maps' }}
                             variant="outlined"
                             value={partNo}
-                            className={`${classes.searchInput} ${classes.inputText}`}
+                            className={classes.searchInput}
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                             onChange={partSearchUpdate}
                         />
                         <IconButton type="submit" className={classes.searchIcon} aria-label="search" size="small" onClick={searchClick}>
@@ -100,7 +108,7 @@ function Filter(props: any) {
                         </IconButton>
                     </Paper>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <Select
                         displayEmpty
                         value={state.serialNumber}
@@ -117,7 +125,7 @@ function Filter(props: any) {
                         }
                     </Select>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <Select
                         displayEmpty
                         className={`${classes.w100} ${classes.inputText}`}
@@ -135,7 +143,7 @@ function Filter(props: any) {
                         }
                     </Select>
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <TextField
                         className={`${classes.w100} ${classes.inputText}`}
                         size="small"
@@ -143,10 +151,13 @@ function Filter(props: any) {
                         placeholder="Nomenclature"
                         value={state.nomenclature}
                         name="nomenclature"
-                        onChange={onchangeInput}
+                        onChange={onchangeInput}                        
+                        InputProps={{
+                            className: classes.inputStyle
+                        }}
                     />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <TextField
                         className={`${classes.w100} ${classes.inputText}`}
                         size="small"
@@ -155,9 +166,12 @@ function Filter(props: any) {
                         value={state.configuration}
                         name="configuration"
                         onChange={onchangeInput}
+                        InputProps={{
+                            className: classes.inputStyle
+                        }}
                     />
                 </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={12} sm={6} md={4}>
                     <TextField
                         className={`${classes.w100} ${classes.inputText}`}
                         size="small"
@@ -166,6 +180,9 @@ function Filter(props: any) {
                         value={state.part}
                         name="part"
                         onChange={onchangeInput}
+                        InputProps={{
+                            className: classes.inputStyle
+                        }}
                     />
                 </Grid>
             </Grid>

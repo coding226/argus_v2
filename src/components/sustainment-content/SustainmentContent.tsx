@@ -5,10 +5,13 @@ import { Grid, Card, CardContent, CardActions, Button, Typography, Box, TextFiel
 import { PartDetails, partData } from '../../model/commonModel';
 const styles = {
     root: {},
-    cardRoot: { padding: '10px', border: '1px solid #e1e1e1' },
-    cardContainer: { width: 550, height: 450, backgroundColor: '#f1f1f1', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 24, fontWeight: 400, color: '#c1c1c1' },
+    cardRoot: {
+        padding: '10px', border: '1px solid #e1e1e1', minWidth: '100%', display: 'flex',
+        'flex-direction': 'column'
+    },
+    cardContainer: { width: 550, height: 450, backgroundColor: '#f1f1f1', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 24, fontWeight: 400, color: '#c1c1c1','align-self': 'center' },
     cardContainerFull: {
-        width: 1120, height: 390, backgroundColor: '#f1f1f1', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 24, fontWeight: 400, color: '#c1c1c1'
+        width: 1120, height: 390, backgroundColor: '#f1f1f1', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 24, fontWeight: 400, color: '#c1c1c1', 'align-self': 'center'
     },
     dropdown: {
         fontSize: '12px !important',
@@ -30,7 +33,12 @@ const styles = {
         lineHeight: '1.75',
         letterSpacing: '0.02857em'
     },
-    inputText: {
+    inputStyle: {
+        fontSize: '14px !important',
+        lineHeight: '16px !important'
+    },
+    gridstyle: {
+        overflow: 'auto !important',
 
     }
 }
@@ -76,20 +84,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.moda.predicted}
                             name="moda"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.moda.actual}
                             name="moda"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -99,20 +113,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.mtbi.predicted}
                             name="mtbi"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.mtbi.actual}
                             name="mtbi"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -122,20 +142,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.smr_code.predicted}
                             name="smr_code"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.smr_code.actual}
                             name="smr_code"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -145,20 +171,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.mttr.predicted}
                             name="mttr"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.mttr.actual}
                             name="mttr"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -168,20 +200,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.drt.predicted}
                             name="drt"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.drt.actual}
                             name="drt"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -191,20 +229,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.rtat.predicted}
                             name="rtat"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.rtat.actual}
                             name="rtat"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -214,20 +258,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.mc_rate.predicted}
                             name="mc_rate"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.mc_rate.actual}
                             name="mc_rate"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -237,20 +287,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.nmc_rate.predicted}
                             name="nmc_rate"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.nmc_rate.actual}
                             name="nmc_rate"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -260,20 +316,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.bit_coverage.predicted}
                             name="bit_coverage"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.bit_coverage.actual}
                             name="bit_coverage"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -283,20 +345,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.am.predicted}
                             name="am"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.am.actual}
                             name="am"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -306,20 +374,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.ao.predicted}
                             name="ao"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.ao.actual}
                             name="ao"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -329,20 +403,26 @@ function SustainmentContent(props: any) {
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.dmsm.predicted}
                             name="dmsm"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                     <Grid item spacing={4} xs={4}>
                         <TextField
-                            className={`${classes.w100} ${classes.inputText}`}
+                            className={classes.w100}
                             size="small"
                             variant="outlined"
                             value={data.dmsm.actual}
                             name="dmsm"
+                            InputProps={{
+                                className: classes.inputStyle
+                            }}
                         />
                     </Grid>
                 </Grid>
@@ -353,13 +433,13 @@ function SustainmentContent(props: any) {
     return (
         <div className={classes.root}>
             {state.data ? (<Grid container spacing={4}>
-                <Grid item spacing={4} xs={6}>
+                <Grid item spacing={4} xs={12} sm={12} md={6} sx={{ overflow: 'auto' }}>
                     {
                         predictedActual(state)
                     }
                 </Grid>
-                <Grid item spacing={4} xs={6}>
-                    <Card className={classes.cardRoot}>
+                <Grid item spacing={4} xs={12} sm={12} md={6} className={classes.gridstyle} >
+                    <Card className={classes.cardRoot} sx={{ width: 550 }}>
                         <div className={classes.cardContainer}> 550 x 450</div>
                         {/* <CardMedia
                             component="img"
@@ -380,8 +460,8 @@ function SustainmentContent(props: any) {
                         </CardActions>
                     </Card>
                 </Grid>
-                <Grid item spacing={4} xs={12}>
-                    <Card className={classes.cardRoot}>
+                <Grid item spacing={4} xs={12} className={classes.gridstyle} >
+                    <Card className={classes.cardRoot} sx={{ width: 1120 }}>
                         <div className={classes.cardContainerFull}> 1120 X 390 </div>
                         {/* <CardMedia
                             component="img"
