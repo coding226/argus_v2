@@ -36,7 +36,11 @@ function SearchContent(props: any) {
     useEffect(() => {
         setState(props.selectedPart);
     }, [props.selectedPart])
-
+    /**
+     * @def Card design
+     * @param selectedPart Selected Part Object
+     * @returns JSX for Card block
+     */
     const creatCard = (selectedPart: PartDetails) => {
         if (selectedPart.product) {
             return selectedPart.product.map((item: any, index) => (

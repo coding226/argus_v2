@@ -49,8 +49,11 @@ function SustainmentContent(props: any) {
     useEffect(() => {
         setState(props.selectedPart);
     }, [props.selectedPart])
-
-
+    /**
+     * 
+     * @param selectedPart Selected Part Object by Part no.
+     * @returns JSX for Sustinment data block
+     */
     const predictedActual = (selectedPart: PartDetails) => {
         const data = {
             moda: { predicted: '', actual: '' },

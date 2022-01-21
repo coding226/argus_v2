@@ -67,7 +67,10 @@ function SustainmentFilter(props: any) {
         }
 
     }
-
+    /**
+     * @def Select Object by part no.
+     * @param e Event Object
+     */
     function searchClick(e: any) {
         let selectedObj: any = mockData.find(d => d.partNumber === partNo)
         if (selectedObj) {
@@ -80,13 +83,26 @@ function SustainmentFilter(props: any) {
             props.onPartSelected({})
         }
     }
-
+    /**
+     * 
+     * @param selectedPart Selected Object by part no.
+     * @returns JSX for dropdown.
+     */
     function getSerialNoItem(selectedPart: PartDetails) {
         return selectedPart.serial_numbers ? selectedPart.serial_numbers.map((item: number, index) => (<MenuItem value={item} key={index}>{item}</MenuItem>)) : null;
     }
+    /**
+     * 
+     * @param selectedPart Selected Object by part no.
+     * @returns JSX for dropdown.
+     */
     function getLotNoItem(selectedPart: PartDetails) {
         return selectedPart.lot_number_id ? selectedPart.lot_number_id.map((item: number, index) => (<MenuItem value={item} key={index}>{item}</MenuItem>)) : null;
     }
+    /**
+     * @def set data into state
+     * @param e Event object
+     */
     function onchangeInput(e: any) {
         let { value, name } = e.target;
         setState(prevState => ({ ...prevState, [name]: value }));

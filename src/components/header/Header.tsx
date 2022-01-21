@@ -51,6 +51,10 @@ const styles = {
 function Header(props: any) {
   const { classes } = props;
   const history = useHistory();
+  /**
+   * @def Header text based on path.
+   * @returns <string> Header Text
+   */
   const retunHeaderPage = () => {
     return history.location.pathname === "/sustainment" ? 'Sustainment Twin' : 'Simulation Twin';
   }
